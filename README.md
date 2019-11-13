@@ -9,4 +9,4 @@ and change "fonoapi.token = 'your_token';" in app.js
 
 then "node app.js"
 
-
+Sample screenshot : https://ibb.co/jMbY6hz
