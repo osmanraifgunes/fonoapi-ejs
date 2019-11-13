@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/" method="GET">
+        <input type="text" value="samsung" placeholder="brand" name="brand">
+        <input type="text" value="a8" placeholder="device" name="device">
+        <input type="text" placeholder="depth" name="depth">
+        <button type="submit">ara</button>
+    </form>
+    <div id="divReport"></div>
+    <script type="text/javascript" src="jq.js"></script>
+    <script type="text/javascript" src="jsontotable.js"></script>
+    <script>
+        var cols = `DeviceName
+                    Brand
+                    dimensions
+                    weight
+                    size
+                    resolution
+                    wlan
+                    bluetooth
+                    gps
+                    usb
+                    battery_c (battery information)
+                    cpu
+                    internal (memory + RAM)
+                    os
+                    video
+                    chipset
+                    gpu`
+        var data = <%- JSON.stringify(tels) %>;
+        result = JSON.parse(data);
+        for (let i = 0; i < result.length; i++) {
+            Object.keys(result[i]).forEach(function (key) {
+                debugger;
+                if (cols.indexOf(key) < 0)
+                    delete result[i][key];
+            });
+        }
+
+        result.sort(function (a, b) {
+            return Object.keys(b).length - Object.keys(a).length;
+        });
+
+        $('#divReport').createTable(result);
+    </script>
+</body>
+
+</html>
