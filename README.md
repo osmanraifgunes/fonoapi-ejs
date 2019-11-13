@@ -12,7 +12,7 @@ then "node app.js"
 Sample screenshot : https://ibb.co/jMbY6hz
 
 To show more columns edit col variable =>
- var cols = `DeviceName
+ var cols = "DeviceName
                     Brand
                     dimensions
                     weight
@@ -28,4 +28,4 @@ To show more columns edit col variable =>
                     os
                     video
                     chipset
-                    gpu`
+                    gpu"
